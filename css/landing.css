@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap");
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.abc{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Montserrat',sans-serif;
+    background: linear-gradient(to bottom right, #650859 , #171115 , #171115 ,#650859); 
+    color: #fff;
+}
+.abc::before, .abc::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    width: 135px; /* Adjust the size of the bubbles */
+    height: 125px; /* Adjust the size of the bubbles */
+    filter: blur(50px);
+    background: #650859; /* Adjust the color of the bubbles */
+}
+
+.abc::before {
+    top: -5rem; /* Adjust the position of the first bubble */
+    left: -5rem; /* Adjust the position of the first bubble */
+}
+
+.abc::after {
+    bottom: -5rem; /* Adjust the position of the second bubble */
+    right: -5rem; /* Adjust the position of the second bubble */
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 1rem;
+    padding-inline: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+
+    color: white;
+   
+}
+header {
+    background-color:  #171115; /* Set your header background color */
+    transition: background-color 0.3s ease; /* Smooth transition for changing background color */
+  }
+  
+  /* Class to remove background color from header */
+  header.header-background {
+    background-color: transparent !important;
+  }
+header img{
+    width: 5rem;
+}
+.header.transparent {
+    background-color: transparent !important;
+  }
+header nav {
+    display: flex;
+    gap: .5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav a {
+    text-decoration: none;
+    color: inherit;
+    font-size: .9rem;
+    text-transform: capitalize;
+    border-radius: 100vw;
+    padding: .5rem 1rem;
+    transition: .3s ease;
+}
+header nav a.active {
+    background: #7522a2; /* Set the background color for the active item */
+}
+
+header nav a:not(.active):hover {
+    background: #7522a2; /* Set the background color for non-active items on hover */
+}
+
+header nav a:not(:hover) {
+    background: transparent; /* Set the background color to transparent for all items when not hovered */
+}
+
+.mainimg{
+    position: absolute;
+    width: 37rem;
+    bottom: 0;
+    right: 3rem;
+}
+.dots{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8rem;
+}
+.leftdots{
+    top: unset;
+    right: unset;
+    bottom: 0;
+    left: 0;
+}
+.side{
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.side p {
+    transform: rotate(90deg);
+    margin-block: 2rem;
+}
+.arrow{
+    width: 2rem;
+    animation: updown .5s linear infinite alternate;
+}
+@keyframes updown {
+    100%{transform: translateY(2rem);}
+}
+.socialicon{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: -90px;
+}
+.socialicon ion-icon{
+    background: #fff;
+    color: #650859;
+    padding: .3rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.socialicon ion-icon:hover{
+    background: #650859;
+    color: #fff;
+}
+section{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+}
+section .content{
+    padding-left: 10%;
+}
+section .content h1 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    position: relative;
+}
+section .content h1:before,section .content h1::after{
+    content: '';
+    position: absolute;
+    background: url('./images/rounded-star.png') center center / cover;
+    width: 3rem;aspect-ratio: 1/1;
+    top: -2rem;
+}
+section .content h1::after{
+    top: unset;bottom: -2rem;
+}
+.buttonholder{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.buttonholder button{
+    background: transparent;
+    color: #fff;
+    border-radius: 100vw;
+    border: 2px solid #7522a2;
+    padding: .7rem 2.5rem;
+    cursor: pointer;
+    transition: .3s ease;
+    
+}
+.buttonholder button:hover{
+    background: #7522a2;
+}
+section .content p{
+    font-size: .8rem;
+    width: 70%;
+}
+section .content h1 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden; /* Ensures text doesn't overflow */
+    white-space: nowrap; /* Keeps text on a single line */
+    font-family: 'Playfair Display', serif; /* Applying Playfair Display font */
+}
+
+/* Typewriter animation for header text */
+@keyframes typewriter {
+    from {
+        width: 0; /* Starts with 0 width */
+    }
+    to {
+        width: auto; /* Expands to full width */
+    }
+}
+
+/* Apply the typewriter animation to the header text */
+section .content h1::after {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 5px; /* Spacing between cursor and text */
+    animation: typewriter 2s steps(40) forwards; /* Adjust duration as needed */
+}
